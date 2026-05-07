@@ -31,5 +31,5 @@ def predict(data: StudentData):
     )
 
     return {
-        "predicted_marks": round(float(prediction[0]), 2)
+       "predicted_score": round(float(prediction[0]), 2)
     }
