@@ -1,27 +1,26 @@
-async function predictMarks() {
+// script.js
 
-    const study_hours =
-        document.getElementById("study_hours").value;
+async function predictStudent() {
 
-    const attendance =
-        document.getElementById("attendance").value;
+  const data = {
+    study_hours: parseFloat(document.getElementById("study_hours").value),
+    attendance: parseFloat(document.getElementById("attendance").value),
+    quiz_score: parseFloat(document.getElementById("quiz_score").value),
+    assignment_score: parseFloat(document.getElementById("assignment_score").value),
+    midterm_score: parseFloat(document.getElementById("midterm_score").value),
+    projects_completed: parseFloat(document.getElementById("projects_completed").value)
+  };
 
-    const response = await fetch(
-        "http://127.0.0.1:8000/predict",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                study_hours: Number(study_hours),
-                attendance: Number(attendance)
-            })
-        }
-    );
+  const response = await fetch("https://student-performance-predictor-d.onrender.com/predict", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
 
-    const data = await response.json();
+  const result = await response.json();
 
-    document.getElementById("result").innerText =
-        "Predicted Marks: " + data.predicted_marks;
+  document.getElementById("result").innerText =
+    "Predicted Score: " + result.predicted_score;
 }

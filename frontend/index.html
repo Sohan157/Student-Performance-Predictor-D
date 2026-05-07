@@ -1,26 +1,56 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Performance Predictor</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Performance Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
-    <h1>Student Performance Predictor</h1>
+    <h1>🎓 Student Performance Dashboard</h1>
 
-    <input type="number" id="study_hours" placeholder="Study Hours">
+    <div class="form-grid">
 
-    <input type="number" id="attendance" placeholder="Attendance %">
+      <div class="input-group">
+        <label>Study Hours</label>
+        <input type="number" id="study_hours" value="5">
+      </div>
 
-    <button onclick="predictMarks()">Predict</button>
+      <div class="input-group">
+        <label>Attendance (%)</label>
+        <input type="number" id="attendance" value="75">
+      </div>
+
+      <div class="input-group">
+        <label>Quiz Score</label>
+        <input type="number" id="quiz_score" value="60">
+      </div>
+
+      <div class="input-group">
+        <label>Assignment Score</label>
+        <input type="number" id="assignment_score" value="65">
+      </div>
+
+      <div class="input-group">
+        <label>Midterm Score</label>
+        <input type="number" id="midterm_score" value="60">
+      </div>
+
+      <div class="input-group">
+        <label>Projects Completed</label>
+        <input type="number" id="projects_completed" value="2">
+      </div>
+
+    </div>
+
+    <button onclick="predictStudent()">Predict Student</button>
 
     <h2 id="result"></h2>
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
